@@ -21,29 +21,31 @@ module.exports = {
     },
     module: {
         loaders: [{
-                test: /\.css$/,
-                loaders: ['style', 'css'],
-                include: APP_PATH
-            }, {
-                test: /\.scss$/,
-                loaders: ['style', 'css', 'sass'],
-                include: APP_PATH
-            }, {
-                test: /\.(png|jpg)$/,
-                loader: 'url?limit=40000'
-            },
-            {
-                test: /\.jsx?$/,
-                loader: 'babel',
-                include: APP_PATH,
-                query: {
-                    presets: ['es2015']
-                }
+            test: /\.css$/,
+            loaders: ['style', 'css'],
+            include: APP_PATH
+        }, {
+            test: /\.less$/,
+            loaders: ['style', 'css', 'less'],
+            include: APP_PATH
+        }, {
+            test: /\.scss$/,
+            loaders: ['style', 'css', 'sass'],
+            include: APP_PATH
+        }, {
+            test: /\.(png|jpg)$/,
+            loader: 'url?limit=40000'
+        }, {
+            test: /\.jsx?$/,
+            loader: 'babel',
+            include: APP_PATH,
+            query: {
+                presets: ['es2015']
             }
-        ]
-    },
+        }]
+    }
     //添加我们的插件 会自动生成一个html文件
-    plugins: [
+    ,plugins: [
         new HtmlwebpackPlugin({
             title: 'Hello World app'
         })
